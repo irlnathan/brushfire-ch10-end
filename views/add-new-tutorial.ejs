@@ -1,0 +1,13 @@
+<div ng-controller="editTutorialPageController" ng-cloak>
+  <div class="container">
+    <form ng-submit="addTutorial()">
+      <h1>adding/editing Tutorial</h1>
+      <button class="btn btn-success" type="submit">add</button>
+      <button class="btn btn-danger navbar-btn" type="button">cancel </button>
+          
+      <!-- SUBMIT NEW TUTORIAL -->
+      <input class="form-control" type="text" name="tutorialTitle" placeholder="e.g. Tutorial Title" ng-model="tutorial.title" />
+      <input class="form-control" type="text" name="tutorialDescription" placeholder="e.g. Tutorial Description" ng-model="tutorial.description" />
+    </form>
+  </div>
+</div>

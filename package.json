@@ -26,7 +26,8 @@
     "sails-postgresql": "^0.10.16",
     "machinepack-emailaddresses": "^0.4.0",
     "machinepack-passwords": "^2.3.0",
-    "machinepack-gravatar": "^1.2.0"
+    "machinepack-gravatar": "^1.2.0",
+    "async": "^1.4.2"
   },
   "scripts": {
     "debug": "node debug app.js",
@@ -37,6 +38,6 @@
     "type": "git",
     "url": "git://github.com/jgalt/brushfire-ch10-end.git"
   },
-  "author":"Mike McNeil/Irl Nathan",
+  "author": "Mike McNeil/Irl Nathan",
   "license": "MIT"
 }

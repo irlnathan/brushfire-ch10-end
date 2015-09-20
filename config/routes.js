@@ -63,7 +63,8 @@ module.exports.routes = {
   'GET /profile': 'PageController.showProfilePage',
   'GET /edit-profile': 'PageController.showEditProfilePage',
   'GET /restore': 'PageController.showRestorePage',
-  'GET /signup': 'PageController.showSignupPage'
+  'GET /signup': 'PageController.showSignupPage',
+  'GET /tutorials/new': 'PageController.showAddNewTutorialPage',
   
   // 'GET /': {
   //   view: 'homepage',

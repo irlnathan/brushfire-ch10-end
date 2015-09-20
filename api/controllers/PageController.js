@@ -98,7 +98,7 @@ module.exports = {
 
       if (!user) {
         sails.log.verbose('Session refers to a user who no longer exists- did you delete a user, then try to refresh the page with an open tab logged-in as that user?');
-        return res.view('homepage');
+        return res.redirect('/');
       }
 
       if (user.admin) {
@@ -127,6 +127,7 @@ module.exports = {
 
   showHomePage: function(req, res) {
 
+    console.log('req.session.userId ==>',req.session.userId);
     if (!req.session.userId) {
       return res.view('homepage', {
         me: null
@@ -182,6 +183,27 @@ module.exports = {
           email: user.email,
           gravatarURL: user.gravatarURL,
           admin: user.admin
+        }
+      });
+    });
+  },
+
+  showAddNewTutorialPage: function(req, res) {
+
+    // Find the user record that's associated with the user-agent's session
+    User.findOne(req.session.userId).exec(function (err, foundUser){
+      if(err) {
+        return res.negotiate(err);
+      }
+      // If a user is not found I'm going to respond with a serverError, if I didn't then
+      //  `foundUser.email` would crash the server.
+      if (!foundUser) {
+        return res.serverError();
+      }
+      return res.view('add-new-tutorial', {
+        me: {
+          email: foundUser.email,
+          gravatarURL: foundUser.gravatarURL
         }
       });
     });
